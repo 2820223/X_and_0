@@ -10,10 +10,13 @@ class IntroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro)
 
-        button.setOnClickListener {
+        val playerX = playerX.text.toString()
+        val player0 = player0.text.toString()
+
+        start.setOnClickListener {
             intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("playerO", "Sarvar")
-            intent.putExtra("playerX", "Elshod")
+            intent.putExtra("playerX", playerX)
+            intent.putExtra("player0", player0)
             startActivity(intent)
         }
     }

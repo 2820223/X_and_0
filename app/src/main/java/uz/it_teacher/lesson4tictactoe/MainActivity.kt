@@ -1,13 +1,13 @@
 package uz.it_teacher.lesson4tictactoe
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     var matrix = Array(3) { IntArray(3) { -1 } }
@@ -32,11 +32,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         restart.setOnClickListener {
             restart()
         }
-
         val bundle: Bundle? = intent.extras
-        val playerO = bundle!!.get("playerO")
-        val playerX = bundle.get("playerX")
-
+        var player0 = bundle!!.getString("player0")
+        var playerX = bundle!!.getString("playerX")
+        Log.d("TAG", "onCreate: "+playerX)
+        if (playerX != null){
+            leftX.text = playerX.toString()
+        }
+        if (player0 != null){
+            right0.text = player0.toString()
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -120,6 +125,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     fun finishGame(iswinner: Int) {
         restart.visibility = View.VISIBLE
         winner.text = "Winner is " + iswinner
@@ -132,6 +138,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         img6.isEnabled = false
         img7.isEnabled = false
         img8.isEnabled = false
+        if (iswinner ==1){
+            leftsourse.text = (leftsourse.text.toString().toInt()+1).toString()
+        }else{
+            rightsourse.text = (rightsourse.text.toString().toInt()+1).toString()
+        }
 
     }
 

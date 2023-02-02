@@ -4,98 +4,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/introbg"
+    android:background="@drawable/bggame"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context=".IntroActivity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="127dp" />
+
 
     <LinearLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline">
+        android:gravity="center">
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/button_x"
-            tools:layout_editor_absoluteX="122dp"
-            tools:layout_editor_absoluteY="328dp" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_bold"
-            android:gravity="center"
-            android:text="Ismingizni kiriting"
-            android:textColor="@color/white"
-            android:textSize="28sp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="230dp" />
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/button_x" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/playerX"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:hint="@string/enter"
+            android:background="@drawable/button"
             android:ems="10"
-            android:layout_marginTop="28dp"
-            android:inputType="textPersonName"
-            android:textColor="#2538A6"
             android:fontFamily="@font/montserrat_bold"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:padding="20dp"
-            android:background="@drawable/button" />
+            android:inputType="textPersonName"
+            android:paddingStart="20dp"
+            android:textColor="#2538A6"
+            tools:ignore="RtlSymmetry" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guideline">
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/button_x"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/button_0"
             tools:layout_editor_absoluteX="122dp"
             tools:layout_editor_absoluteY="328dp" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_bold"
-            android:gravity="center"
-            android:text="Ismingizni kiriting"
-            android:textColor="@color/white"
-            android:textSize="28sp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="230dp" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/player0"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button"
             android:ems="10"
-            android:layout_marginTop="28dp"
-            android:inputType="textPersonName"
-            android:textColor="#2538A6"
+            android:hint="@string/enter"
             android:fontFamily="@font/montserrat_bold"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:padding="20dp"
-            android:background="@drawable/button" />
+            android:inputType="textPersonName"
+            android:paddingStart="20dp"
+            android:textColor="#2538A6"
+            tools:ignore="RtlSymmetry"
+            android:autofillHints="jhgjhggjg" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/start"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="40dp"
+        app:srcCompat="@drawable/button_start" />
 
 
 </LinearLayout>

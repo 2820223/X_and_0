@@ -11,7 +11,7 @@
         android:id="@+id/active_player"
         android:layout_width="265dp"
         android:layout_height="57dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/button"
         android:gravity="center"
         android:textColor="@color/textColor"
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -168,5 +168,70 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <TextView
+        android:id="@+id/leftX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Player X"
+        android:textColor="@color/white"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/right0"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/winner" />
+
+    <TextView
+        android:id="@+id/right0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Player O"
+        android:textColor="@color/white"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/leftX"
+        app:layout_constraintTop_toBottomOf="@+id/winner" />
+
+    <TextView
+        android:id="@+id/leftsourse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="@color/white"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/right0"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leftX" />
+
+    <TextView
+        android:id="@+id/rightsourse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="@color/white"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/leftX"
+        app:layout_constraintTop_toBottomOf="@+id/right0" />
+
+    <View
+        android:layout_width="4dp"
+        android:layout_height="60dp"
+        android:background="@drawable/sourse"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leftX" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
