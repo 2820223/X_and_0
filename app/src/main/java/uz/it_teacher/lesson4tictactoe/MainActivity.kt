@@ -1,24 +1,33 @@
 package uz.it_teacher.lesson4tictactoe
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_intro.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     var matrix = Array(3) { IntArray(3) { -1 } }
     var active = true
+    var chek = 0
+    lateinit var win:String
+    var soni =0
+
+
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         active_player.text = "Player X"
+        goResult()
+
 
         img0.setOnClickListener(this)
         img1.setOnClickListener(this)
@@ -32,17 +41,28 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         restart.setOnClickListener {
             restart()
         }
+
+
+
+
         val bundle: Bundle? = intent.extras
-        var player0 = bundle!!.getString("player0")
-        var playerX = bundle!!.getString("playerX")
-        Log.d("TAG", "onCreate: "+playerX)
-        if (playerX != null){
+        var player0 = intent.getStringExtra("player0")
+        var playerX = intent.getStringExtra("playerX")
+
+
+        Log.d("TAG", playerX.toString())
+
+        if (playerX != null) {
             leftX.text = playerX.toString()
         }
-        if (player0 != null){
+        if (player0 != null) {
             right0.text = player0.toString()
         }
     }
+
+
+
+
 
     @SuppressLint("SetTextI18n")
     override fun onClick(p0: View?) {
@@ -64,6 +84,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 active_player.text = "Player X"
                 isWinner(0)
             }
+
+
+            if (chek==9){
+               finishGame(-1)
+            Log.d("chek",chek.toString())
+
+            }
+            chek++
         }
     }
 
@@ -123,12 +151,24 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             finishGame(a)
             return
         }
+
+
     }
+
+
 
     @SuppressLint("SetTextI18n")
     fun finishGame(iswinner: Int) {
+        soni++
         restart.visibility = View.VISIBLE
-        winner.text = "Winner is " + iswinner
+
+       if (iswinner==-1) {
+           winner.text = "It's drought"
+
+       }else {
+           winner.text = "Winner is " + iswinner
+       }
+        chek =0
         img0.isEnabled = false
         img1.isEnabled = false
         img2.isEnabled = false
@@ -138,23 +178,27 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         img6.isEnabled = false
         img7.isEnabled = false
         img8.isEnabled = false
-        if (iswinner ==1){
-            leftsourse.text = (leftsourse.text.toString().toInt()+1).toString()
-        }else{
-            rightsourse.text = (rightsourse.text.toString().toInt()+1).toString()
-        }
 
+
+        if (iswinner == 1) {
+            leftsourse.text = (leftsourse.text.toString().toInt() + 1).toString()
+        } else if  (iswinner == 0 ){
+            rightsourse.text = (rightsourse.text.toString().toInt() + 1).toString()
+
+
+        }
+soni++
     }
+
+
 
     @SuppressLint("SetTextI18n")
     fun restart() {
         matrix = Array(3) { IntArray(3) { -1 } }
         active = true
-
         active_player.text = "Player X"
         restart.visibility = View.INVISIBLE
         winner.text = ""
-
         img0.setImageDrawable(null)
         img1.setImageDrawable(null)
         img2.setImageDrawable(null)
@@ -164,6 +208,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         img6.setImageDrawable(null)
         img7.setImageDrawable(null)
         img8.setImageDrawable(null)
+
 
         img0.isEnabled = true
         img1.isEnabled = true
@@ -176,4 +221,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         img8.isEnabled = true
 
     }
-}
+    fun goResult(){
+        if (soni == 2){
+            active_player.text="fsf"
+        if (rightsourse.text.toString().toInt()>leftsourse.text.toString().toInt()){
+            win=player0.text.toString()
+        }
+        else{
+            win =playerX.text.toString()
+        }
+
+
+
+        var intent = Intent(this, Result::class.java)
+        intent.putExtra("win", win)
+            startActivity(intent)
+    }
+    }
+
+    }
+
