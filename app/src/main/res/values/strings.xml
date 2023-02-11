@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">lesson4TicTacToe</string>
-    <string name="enter">Ismingizni kiriting</string>
+    <string name="app_name" translatable="false">Tic Tac Toe</string>
+    <string name="enter" translatable="false">Enter Your name</string>
 </resources>
